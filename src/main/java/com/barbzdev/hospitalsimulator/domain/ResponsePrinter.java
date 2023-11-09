@@ -1,5 +1,7 @@
 package com.barbzdev.hospitalsimulator.domain;
 
+import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
+
 import java.util.List;
 
 public interface ResponsePrinter {

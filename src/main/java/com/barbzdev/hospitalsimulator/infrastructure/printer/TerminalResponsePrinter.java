@@ -1,4 +1,4 @@
-package com.barbzdev.hospitalsimulator.infrastructure;
+package com.barbzdev.hospitalsimulator.infrastructure.printer;
 
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
 import com.barbzdev.hospitalsimulator.domain.ResponsePrinter;
