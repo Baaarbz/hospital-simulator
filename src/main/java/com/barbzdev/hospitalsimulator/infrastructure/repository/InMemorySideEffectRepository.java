@@ -7,10 +7,12 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class InMemorySideEffectRepository implements SideEffectRepository {
 
-
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private final Map<HealthStateEnum, Set<DrugEnum>> inMemoryDrugsSideEffect;
 
 	public InMemorySideEffectRepository() {
@@ -20,6 +22,7 @@ public class InMemorySideEffectRepository implements SideEffectRepository {
 
 	@Override
 	public Optional<HealthStateEnum> findBy(Set<DrugEnum> drugs) {
+		logger.debug("Searching if drugs::{} can have a side effect", drugs);
 		for (HealthStateEnum causedHealthState : inMemoryDrugsSideEffect.keySet()) {
 			if (drugs.containsAll(inMemoryDrugsSideEffect.get(causedHealthState))) {
 				return Optional.of(causedHealthState);

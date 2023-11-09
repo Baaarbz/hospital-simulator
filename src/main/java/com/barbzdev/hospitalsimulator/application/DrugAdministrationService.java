@@ -11,9 +11,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class DrugAdministrationService {
 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private final CureRepository cureRepository;
 	private final DeathlyCombinationRepository deathlyCombinationRepository;
 	private final SideEffectRepository sideEffectRepository;
@@ -33,6 +36,7 @@ public class DrugAdministrationService {
 		Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs = new EnumMap<>(HealthStateEnum.class);
 
 		if (hasDeathlyCombination(availableDrugs)) {
+			logger.info("Combination of drugs are mortal::{}", availableDrugs);
 			healthStatesAfterApplyingDrugs.put(HealthStateEnum.X, healthStates.size());
 			return healthStatesAfterApplyingDrugs;
 		}
@@ -40,6 +44,7 @@ public class DrugAdministrationService {
 		for (HealthStateEnum healthState : healthStates) {
 			HealthStateEnum updatedHealthState = applyDrugEffects(healthState, availableDrugs);
 			healthStatesAfterApplyingDrugs.compute(updatedHealthState, (key, value) -> value == null ? 1 : value + 1);
+			logger.info("Patient with health state::{} now is {}", healthState, updatedHealthState);
 		}
 
 		return healthStatesAfterApplyingDrugs;
@@ -49,12 +54,9 @@ public class DrugAdministrationService {
 		HealthStateEnum updatedHealthState = healthState;
 
 		if (isHealthyOrHasCure(healthState, availableDrugs)) {
-			Optional<HealthStateEnum> sideEffectStateOptional = sideEffectRepository.findBy(availableDrugs);
-			updatedHealthState = sideEffectStateOptional.orElse(HealthStateEnum.H);
+			updatedHealthState = applyDrugsToHealthyPatientOrWithCure(availableDrugs);
 		} else if (isDeadlyDisease(healthState)) {
-			updatedHealthState = preventDeathRepository.preventsDeath(healthState, availableDrugs)
-				? healthState
-				: HealthStateEnum.X;
+			updatedHealthState = applyDrugsToPatientWithDeadlyDisease(healthState, availableDrugs);
 		}
 
 		return updatedHealthState;
@@ -68,7 +70,27 @@ public class DrugAdministrationService {
 		return healthState == HealthStateEnum.H || cureRepository.hasCure(healthState, availableDrugs);
 	}
 
+	private HealthStateEnum applyDrugsToHealthyPatientOrWithCure(Set<DrugEnum> availableDrugs) {
+		Optional<HealthStateEnum> sideEffectStateOptional = sideEffectRepository.findBy(availableDrugs);
+		sideEffectStateOptional.ifPresent(sideEffect -> logger.info("Drugs combination::{} has side effects causing::{}", availableDrugs, sideEffect));
+		return sideEffectStateOptional.orElse(HealthStateEnum.H);
+	}
+
 	private boolean isDeadlyDisease(HealthStateEnum healthState) {
 		return preventDeathRepository.isDeadlyDisease(healthState);
+	}
+
+	private HealthStateEnum applyDrugsToPatientWithDeadlyDisease(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
+		if (preventsDead(healthState, availableDrugs)) {
+			logger.info("Patient has the right drugs to prevent dying of::{}", healthState);
+			return healthState;
+		}
+
+		logger.info("Patient dies of::{} because does not receive the right drugs", healthState);
+		return HealthStateEnum.X;
+	}
+
+	private boolean preventsDead(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
+		return preventDeathRepository.preventsDeath(healthState, availableDrugs);
 	}
 }

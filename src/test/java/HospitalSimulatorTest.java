@@ -41,6 +41,8 @@ public class HospitalSimulatorTest {
 			Arguments.of("H", "I,An", "F:1,H:0,D:0,T:0,X:0", "side effect fever"),
 			Arguments.of("H", "An,I", "F:1,H:0,D:0,T:0,X:0", "side effect fever"),
 			Arguments.of("D", "", "F:0,H:0,D:0,T:0,X:1", "die if not receive insulin"),
+			Arguments.of("T,F,D,H,X", "P,As", "F:0,H:0,D:0,T:0,X:5", "die all"),
+			Arguments.of("T,F,D,H,X", "As,P", "F:0,H:0,D:0,T:0,X:5", "die all"),
 			Arguments.of("T,F,D,H,X", "An,P,I,As", "F:0,H:0,D:0,T:0,X:5", "die all"),
 			Arguments.of("T,F,D", "An,I", "F:2,H:0,D:1,T:0,X:0", "patient with diabetes not die, tuberculosis cure with antibiotic but produces fever with insulin")
 		);

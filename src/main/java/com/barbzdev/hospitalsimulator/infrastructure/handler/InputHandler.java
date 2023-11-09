@@ -11,9 +11,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class InputHandler {
 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private final DrugAdministrationService drugAdministrationService;
 	private final TerminalResponsePrinter terminalResponsePrinter;
 
@@ -24,16 +27,17 @@ public class InputHandler {
 
 	public void handle(String[] input) {
 		List<HealthStateEnum> healthStates = Collections.emptyList();
-		Set<DrugEnum> drugs = Collections.emptySet();
+		Set<DrugEnum> availableDrugs = Collections.emptySet();
 
 		if (input.length != 0) {
 			healthStates = transformHealthStateInputFunction.apply(input[0]);
-			drugs = input.length == 2
+			availableDrugs = input.length == 2
 				? transformDrugInputFunction.apply(input[1])
 				: Collections.emptySet();
 		}
 
-		Map<HealthStateEnum, Integer> treatedPatients = drugAdministrationService.execute(healthStates, drugs);
+		logger.info("Input received - Patients::{}  Available drugs::{}", healthStates, availableDrugs);
+		Map<HealthStateEnum, Integer> treatedPatients = drugAdministrationService.execute(healthStates, availableDrugs);
 		terminalResponsePrinter.print(treatedPatients);
 	}
 
