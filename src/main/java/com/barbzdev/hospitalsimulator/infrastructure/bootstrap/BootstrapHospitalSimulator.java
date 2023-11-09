@@ -6,6 +6,7 @@ import com.barbzdev.hospitalsimulator.domain.repository.DeathlyCombinationReposi
 import com.barbzdev.hospitalsimulator.domain.repository.PreventDeathRepository;
 import com.barbzdev.hospitalsimulator.domain.repository.SideEffectRepository;
 import com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandler;
+import com.barbzdev.hospitalsimulator.infrastructure.printer.TerminalResponsePrinter;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryCureRepository;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDeathlyCombinationRepository;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryPreventDeathRepository;
@@ -51,6 +52,6 @@ public class BootstrapHospitalSimulator {
 	}
 
 	private void initHandlers() {
-		this.inputHandler = new InputHandler(this.drugAdministrationService);
+		this.inputHandler = new InputHandler(this.drugAdministrationService, new TerminalResponsePrinter());
 	}
 }
