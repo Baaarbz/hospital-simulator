@@ -17,12 +17,17 @@ public class InMemoryPreventDeathRepository implements PreventDeathRepository {
 	}
 
 	@Override
-	public Boolean hasDeathPrevention(HealthStateEnum healthState, Set<DrugEnum> drugs) {
+	public Boolean isDeadlyDisease(HealthStateEnum healthState) {
+		return inMemoryDrugPreventDeath.containsKey(healthState);
+	}
+
+	@Override
+	public Boolean preventsDeath(HealthStateEnum healthState, Set<DrugEnum> drugs) {
 		if (inMemoryDrugPreventDeath.containsKey(healthState)) {
 			Set<DrugEnum> drugsCanPreventDeath = inMemoryDrugPreventDeath.get(healthState);
 
 			return !drugs.isEmpty() && drugs.stream().anyMatch(drugsCanPreventDeath::contains);
 		}
-		return true;
+		return false;
 	}
 }

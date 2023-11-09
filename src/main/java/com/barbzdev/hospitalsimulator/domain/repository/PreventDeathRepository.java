@@ -5,5 +5,6 @@ import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
 import java.util.Set;
 
 public interface PreventDeathRepository {
-	Boolean hasDeathPrevention(HealthStateEnum healthState, Set<DrugEnum> drugs);
+	Boolean isDeadlyDisease(HealthStateEnum healthState);
+	Boolean preventsDeath(HealthStateEnum healthState, Set<DrugEnum> drugs);
 }

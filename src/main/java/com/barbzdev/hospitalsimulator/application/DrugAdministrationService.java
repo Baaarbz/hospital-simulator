@@ -48,11 +48,13 @@ public class DrugAdministrationService {
 	private HealthStateEnum applyDrugEffects(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
 		HealthStateEnum updatedHealthState = healthState;
 
-		if (healthState == HealthStateEnum.H || cureRepository.hasCure(healthState, availableDrugs)) {
+		if (isHealthyOrHasCure(healthState, availableDrugs)) {
 			Optional<HealthStateEnum> sideEffectStateOptional = sideEffectRepository.findBy(availableDrugs);
 			updatedHealthState = sideEffectStateOptional.orElse(HealthStateEnum.H);
-		} else if (!preventDeathRepository.hasDeathPrevention(healthState, availableDrugs)) {
-			updatedHealthState = HealthStateEnum.X;
+		} else if (isDeadlyDisease(healthState)) {
+			updatedHealthState = preventDeathRepository.preventsDeath(healthState, availableDrugs)
+				? healthState
+				: HealthStateEnum.X;
 		}
 
 		return updatedHealthState;
@@ -60,5 +62,13 @@ public class DrugAdministrationService {
 
 	private boolean hasDeathlyCombination(Set<DrugEnum> availableDrugs) {
 		return deathlyCombinationRepository.hasDeathlyCombination(availableDrugs);
+	}
+
+	private boolean isHealthyOrHasCure(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
+		return healthState == HealthStateEnum.H || cureRepository.hasCure(healthState, availableDrugs);
+	}
+
+	private boolean isDeadlyDisease(HealthStateEnum healthState) {
+		return preventDeathRepository.isDeadlyDisease(healthState);
 	}
 }
