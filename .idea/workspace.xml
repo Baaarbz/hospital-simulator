@@ -4,29 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/aws.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/FeverService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/DrugEffect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/DrugEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/HealthStateEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/ResponsePrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/HospitalSimulator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/InputHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/TerminalResponsePrinter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/HospitalSimulatorTest.java" afterDir="false" />
+    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="improve testing">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/HealthStateEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/HealthStateEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/printer/TerminalResponsePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/printer/TerminalResponsePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,24 +45,25 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eduar/Desktop/projects/HospitalSimulator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eduar/Desktop/projects/HospitalSimulator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.barbzdev.hospitalsimulator.domain" />
@@ -92,8 +75,8 @@
       <recent name="com.barbzdev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.HospitalSimulator">
-    <configuration name="HospitalSimulator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.HospitalSimulatorTest.hospitalSimulator">
+    <configuration name="HospitalSimulator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator" />
       <module name="HospitalSimulator.main" />
       <option name="PROGRAM_PARAMETERS" value="F,D As" />
@@ -111,6 +94,78 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="HospitalSimulatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HospitalSimulatorTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HospitalSimulatorTest.Should_TestDifferentCases" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HospitalSimulatorTest.Should_TestDifferentCases&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HospitalSimulatorTest.hospitalSimulator" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;HospitalSimulatorTest.hospitalSimulator&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
     </configuration>
     <configuration name="HospitalSimulatorTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -136,14 +191,28 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration default="true" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Application.HospitalSimulator" />
+      <item itemvalue="Gradle.HospitalSimulatorTest" />
+      <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
+      <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
       <item itemvalue="Gradle.HospitalSimulatorTest.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
+        <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
+        <item itemvalue="Gradle.HospitalSimulatorTest" />
         <item itemvalue="Gradle.HospitalSimulatorTest.test" />
-        <item itemvalue="Application.HospitalSimulator" />
       </list>
     </recent_temporary>
   </component>
@@ -156,10 +225,89 @@
       <option name="presentableId" value="Default" />
       <updated>1699467699079</updated>
       <workItem from="1699467700149" duration="14066000" />
+      <workItem from="1699518996998" duration="18770000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <option name="closed" value="true" />
+      <created>1699519192055</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1699519192055</updated>
+    </task>
+    <task id="LOCAL-00002" summary="adding basic project structure">
+      <option name="closed" value="true" />
+      <created>1699538453451</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1699538453451</updated>
+    </task>
+    <task id="LOCAL-00003" summary="remove lombok">
+      <option name="closed" value="true" />
+      <created>1699559029182</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1699559029182</updated>
+    </task>
+    <task id="LOCAL-00004" summary="remove unneeded printer repository">
+      <option name="closed" value="true" />
+      <created>1699559048267</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699559048267</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add patient simulation">
+      <option name="closed" value="true" />
+      <created>1699559060166</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1699559060166</updated>
+    </task>
+    <task id="LOCAL-00006" summary="print result">
+      <option name="closed" value="true" />
+      <created>1699559496661</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1699559496661</updated>
+    </task>
+    <task id="LOCAL-00007" summary="improve testing">
+      <option name="closed" value="true" />
+      <created>1699564177810</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699564177810</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <MESSAGE value="adding basic project structure" />
+    <MESSAGE value="remove lombok" />
+    <MESSAGE value="remove unneeded printer repository" />
+    <MESSAGE value="add patient simulation" />
+    <MESSAGE value="print result" />
+    <MESSAGE value="improve testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve testing" />
   </component>
 </project>

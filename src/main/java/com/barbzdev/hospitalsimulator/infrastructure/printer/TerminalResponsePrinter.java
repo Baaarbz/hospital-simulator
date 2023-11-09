@@ -12,11 +12,11 @@ public class TerminalResponsePrinter {
 		final String messageFormat = "F:%x,H:%x,D:%x,T:%x,X:%x";
 
 		String message = String.format(messageFormat,
-			patientHealthStates.get(HealthStateEnum.F),
-			patientHealthStates.get(HealthStateEnum.H),
-			patientHealthStates.get(HealthStateEnum.D),
-			patientHealthStates.get(HealthStateEnum.T),
-			patientHealthStates.get(HealthStateEnum.X)
+			patientHealthStates.getOrDefault(HealthStateEnum.F, 0),
+			patientHealthStates.getOrDefault(HealthStateEnum.H, 0),
+			patientHealthStates.getOrDefault(HealthStateEnum.D, 0),
+			patientHealthStates.getOrDefault(HealthStateEnum.T, 0),
+			patientHealthStates.getOrDefault(HealthStateEnum.X, 0)
 		);
 
 		System.out.print(message);
