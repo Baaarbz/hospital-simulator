@@ -23,6 +23,6 @@ public class InMemoryPreventDeathRepository implements PreventDeathRepository {
 
 			return !drugs.isEmpty() && drugs.stream().anyMatch(drugsCanPreventDeath::contains);
 		}
-		return false;
+		return true;
 	}
 }
