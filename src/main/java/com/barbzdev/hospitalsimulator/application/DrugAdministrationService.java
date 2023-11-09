@@ -40,11 +40,10 @@ public class DrugAdministrationService {
 		for (HealthStateEnum healthState : healthStates) {
 			HealthStateEnum updatedPatientHealthState = healthState;
 
-			if (cureRepository.hasCure(healthState, availableDrugs)) {
+			if (healthState == HealthStateEnum.H || cureRepository.hasCure(healthState, availableDrugs)) {
 				Optional<HealthStateEnum> sideEffectStateOptional = sideEffectRepository.findBy(availableDrugs);
 				updatedPatientHealthState = sideEffectStateOptional.orElse(HealthStateEnum.H);
 				healthStatesAfterApplyingDrugs.put(updatedPatientHealthState, 1 + healthStatesAfterApplyingDrugs.get(updatedPatientHealthState));
-
 			} else if (!preventDeathRepository.hasDeathPrevention(healthState, availableDrugs)) {
 				healthStatesAfterApplyingDrugs.put(HealthStateEnum.X, 1 + healthStatesAfterApplyingDrugs.get(HealthStateEnum.X));
 			} else {

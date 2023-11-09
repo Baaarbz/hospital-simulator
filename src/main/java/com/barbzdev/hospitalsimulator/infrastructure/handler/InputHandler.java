@@ -44,6 +44,7 @@ public class InputHandler {
 
 	private final Function<String, Set<DrugEnum>> transformDrugInputFunction = drugsInput -> Arrays
 		.stream(drugsInput.toUpperCase().split(","))
+		.filter(i -> !i.isBlank())
 		.map(DrugEnum::valueOf)
 		.collect(Collectors.toSet());
 }
