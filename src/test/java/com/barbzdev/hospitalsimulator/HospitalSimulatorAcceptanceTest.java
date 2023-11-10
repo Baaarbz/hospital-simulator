@@ -1,3 +1,5 @@
+package com.barbzdev.hospitalsimulator;
+
 import com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
