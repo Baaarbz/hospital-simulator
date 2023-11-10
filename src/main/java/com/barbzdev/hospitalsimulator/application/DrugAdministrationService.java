@@ -1,8 +1,8 @@
 package com.barbzdev.hospitalsimulator.application;
 
 import com.barbzdev.hospitalsimulator.domain.DrugEnum;
-import com.barbzdev.hospitalsimulator.domain.FlyingSpaghettiMonster;
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
+import com.barbzdev.hospitalsimulator.domain.component.SpaghettiMonster;
 import com.barbzdev.hospitalsimulator.domain.repository.DrugCombinationEffectRepository;
 import com.barbzdev.hospitalsimulator.domain.repository.HealthStateRepository;
 import java.util.EnumMap;
@@ -18,10 +18,14 @@ public class DrugAdministrationService {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	private final HealthStateRepository healthStateRepository;
 	private final DrugCombinationEffectRepository drugCombinationEffectRepository;
+	private final SpaghettiMonster spaghettiMonster;
 
-	public DrugAdministrationService(HealthStateRepository healthStateRepository, DrugCombinationEffectRepository drugCombinationEffectRepository) {
+	public DrugAdministrationService(HealthStateRepository healthStateRepository,
+																	 DrugCombinationEffectRepository drugCombinationEffectRepository,
+																	 SpaghettiMonster spaghettiMonster) {
 		this.healthStateRepository = healthStateRepository;
 		this.drugCombinationEffectRepository = drugCombinationEffectRepository;
+		this.spaghettiMonster = spaghettiMonster;
 	}
 
 	public Map<HealthStateEnum, Integer> execute(List<HealthStateEnum> healthStates, Set<DrugEnum> availableDrugs) {
@@ -78,9 +82,8 @@ public class DrugAdministrationService {
 	public void invokeFlyingSpaghettiMonster(Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs) {
 		if (healthStatesAfterApplyingDrugs.containsKey(HealthStateEnum.X) && healthStatesAfterApplyingDrugs.get(HealthStateEnum.X) > 0) {
 			logger.info("Invoking the Flying Spaghetti Monster...");
-			FlyingSpaghettiMonster flyingSpaghettiMonster = new FlyingSpaghettiMonster();
 
-			if (flyingSpaghettiMonster.showsNoodlyPower()) {
+			if (spaghettiMonster.showsNoodlyPower()) {
 				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.X, (key, value) -> value == null ? 1 : value - 1);
 				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.H, (key, value) -> value == null ? 1 : value + 1);
 				logger.info("OOHHHHH THIS IS A MIRACLE!! The Flying Spaghetti Monster decides to show his noodly power and had resurrected one death patient");

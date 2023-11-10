@@ -3,6 +3,7 @@ package com.barbzdev.hospitalsimulator.application;
 
 import com.barbzdev.hospitalsimulator.domain.DrugEnum;
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
+import com.barbzdev.hospitalsimulator.domain.component.SpaghettiMonster;
 import com.barbzdev.hospitalsimulator.domain.repository.DrugCombinationEffectRepository;
 import com.barbzdev.hospitalsimulator.domain.repository.HealthStateRepository;
 import java.util.List;
@@ -19,7 +20,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.inOrder;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -32,6 +32,9 @@ public class DrugAdministrationServiceTest {
 
 	@Mock
 	DrugCombinationEffectRepository drugCombinationEffectRepository;
+
+	@Mock
+	SpaghettiMonster spaghettiMonster;
 
 	@InjectMocks
 	DrugAdministrationService drugAdministrationService;
@@ -56,6 +59,7 @@ public class DrugAdministrationServiceTest {
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
 		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
+		verifyNoInteractions(spaghettiMonster);
 	}
 
 	@Test
@@ -77,6 +81,7 @@ public class DrugAdministrationServiceTest {
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
 		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
+		verifyNoInteractions(spaghettiMonster);
 	}
 
 	@Test
@@ -86,6 +91,7 @@ public class DrugAdministrationServiceTest {
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
 		when(healthStateRepository.hasCure(any(), any())).thenReturn(false);
 		when(healthStateRepository.preventsDeath(any(), any())).thenReturn(false);
+		when(spaghettiMonster.showsNoodlyPower()).thenReturn(false);
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -94,10 +100,11 @@ public class DrugAdministrationServiceTest {
 		assertNull(response.get(HealthStateEnum.F));
 		assertNull(response.get(HealthStateEnum.H));
 		assertNull(response.get(HealthStateEnum.D));
-		InOrder inOrder = inOrder(drugCombinationEffectRepository, healthStateRepository);
+		InOrder inOrder = inOrder(drugCombinationEffectRepository, healthStateRepository, spaghettiMonster);
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
 		inOrder.verify(healthStateRepository).preventsDeath(healthStateInput.get(0), drugsInput);
+		inOrder.verify(spaghettiMonster).showsNoodlyPower();
 	}
 
 	@Test
@@ -119,6 +126,7 @@ public class DrugAdministrationServiceTest {
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
 		inOrder.verify(healthStateRepository).preventsDeath(healthStateInput.get(0), drugsInput);
+		verifyNoInteractions(spaghettiMonster);
 	}
 
 	@Test
@@ -139,6 +147,7 @@ public class DrugAdministrationServiceTest {
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
 		verifyNoInteractions(healthStateRepository);
+		verifyNoInteractions(spaghettiMonster);
 	}
 
 	@Test
@@ -146,6 +155,7 @@ public class DrugAdministrationServiceTest {
 		List<HealthStateEnum> healthStateInput = List.of(HealthStateEnum.T);
 		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(true);
+		when(spaghettiMonster.showsNoodlyPower()).thenReturn(false);
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -154,7 +164,9 @@ public class DrugAdministrationServiceTest {
 		assertNull(response.get(HealthStateEnum.H));
 		assertNull(response.get(HealthStateEnum.F));
 		assertNull(response.get(HealthStateEnum.D));
-		verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
+		InOrder inOrder = inOrder(drugCombinationEffectRepository, spaghettiMonster);
+		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
+		inOrder.verify(spaghettiMonster).showsNoodlyPower();
 		verifyNoMoreInteractions(healthStateRepository, drugCombinationEffectRepository);
 	}
 
@@ -163,6 +175,7 @@ public class DrugAdministrationServiceTest {
 		List<HealthStateEnum> healthStateInput = List.of(HealthStateEnum.X);
 		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
+		when(spaghettiMonster.showsNoodlyPower()).thenReturn(false);
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -171,7 +184,29 @@ public class DrugAdministrationServiceTest {
 		assertNull(response.get(HealthStateEnum.H));
 		assertNull(response.get(HealthStateEnum.F));
 		assertNull(response.get(HealthStateEnum.D));
-		verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
+		InOrder inOrder = inOrder(drugCombinationEffectRepository, spaghettiMonster);
+		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
+		inOrder.verify(spaghettiMonster).showsNoodlyPower();
+		verifyNoMoreInteractions(healthStateRepository, drugCombinationEffectRepository);
+	}
+
+	@Test
+	public void GIVEN_deathPatient_SHOULD_spaghettiMonsterShowsNoodlyPower() {
+		List<HealthStateEnum> healthStateInput = List.of(HealthStateEnum.X);
+		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
+		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
+		when(spaghettiMonster.showsNoodlyPower()).thenReturn(true);
+
+		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
+
+		assertEquals(1, response.get(HealthStateEnum.H));
+		assertEquals(0, response.get(HealthStateEnum.X));
+		assertNull(response.get(HealthStateEnum.T));
+		assertNull(response.get(HealthStateEnum.F));
+		assertNull(response.get(HealthStateEnum.D));
+		InOrder inOrder = inOrder(drugCombinationEffectRepository, spaghettiMonster);
+		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
+		inOrder.verify(spaghettiMonster).showsNoodlyPower();
 		verifyNoMoreInteractions(healthStateRepository, drugCombinationEffectRepository);
 	}
 }

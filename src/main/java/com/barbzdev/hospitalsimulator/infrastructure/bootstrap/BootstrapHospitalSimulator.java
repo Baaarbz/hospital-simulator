@@ -3,6 +3,7 @@ package com.barbzdev.hospitalsimulator.infrastructure.bootstrap;
 import com.barbzdev.hospitalsimulator.application.DrugAdministrationService;
 import com.barbzdev.hospitalsimulator.domain.repository.DrugCombinationEffectRepository;
 import com.barbzdev.hospitalsimulator.domain.repository.HealthStateRepository;
+import com.barbzdev.hospitalsimulator.infrastructure.component.FlyingSpaghettiMonster;
 import com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandler;
 import com.barbzdev.hospitalsimulator.infrastructure.printer.TerminalResponsePrinter;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDrugCombinationEffectRepository;
@@ -47,8 +48,8 @@ public class BootstrapHospitalSimulator {
 		logger.debug("Initializing services...");
 		this.drugAdministrationService = new DrugAdministrationService(
 			this.healthStateRepository,
-			this.drugCombinationEffectRepository
-		);
+			this.drugCombinationEffectRepository,
+			new FlyingSpaghettiMonster());
 		logger.debug("Services initialized successfully");
 	}
 
