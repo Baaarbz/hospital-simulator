@@ -5,12 +5,14 @@ import java.util.Random;
 
 public class FlyingSpaghettiMonster implements SpaghettiMonster {
 
-	public FlyingSpaghettiMonster() {
+	private final Random random;
+
+	public FlyingSpaghettiMonster(Random random) {
+		this.random = random;
 	}
 
 	@Override
 	public Boolean showsNoodlyPower() {
-		Random random = new Random();
 		int randomNumber = random.nextInt(1000000) + 1;
 		return randomNumber == 4;
 	}

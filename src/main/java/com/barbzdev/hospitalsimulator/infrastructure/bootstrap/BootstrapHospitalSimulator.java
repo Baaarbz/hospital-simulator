@@ -8,6 +8,7 @@ import com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandler;
 import com.barbzdev.hospitalsimulator.infrastructure.printer.TerminalResponsePrinter;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDrugCombinationEffectRepository;
 import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryHealthStateRepository;
+import java.util.Random;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,7 +50,7 @@ public class BootstrapHospitalSimulator {
 		this.drugAdministrationService = new DrugAdministrationService(
 			this.healthStateRepository,
 			this.drugCombinationEffectRepository,
-			new FlyingSpaghettiMonster());
+			new FlyingSpaghettiMonster(new Random()));
 		logger.debug("Services initialized successfully");
 	}
 
