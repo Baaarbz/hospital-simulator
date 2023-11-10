@@ -1,6 +1,7 @@
 package com.barbzdev.hospitalsimulator.application;
 
 import com.barbzdev.hospitalsimulator.domain.DrugEnum;
+import com.barbzdev.hospitalsimulator.domain.FlyingSpaghettiMonster;
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
 import com.barbzdev.hospitalsimulator.domain.repository.CureRepository;
 import com.barbzdev.hospitalsimulator.domain.repository.DeathlyCombinationRepository;
@@ -38,6 +39,7 @@ public class DrugAdministrationService {
 		if (hasDeathlyCombination(availableDrugs)) {
 			logger.info("Combination of drugs are mortal::{}", availableDrugs);
 			healthStatesAfterApplyingDrugs.put(HealthStateEnum.X, healthStates.size());
+			invokeFlyingSpaghettiMonster(healthStatesAfterApplyingDrugs);
 			return healthStatesAfterApplyingDrugs;
 		}
 
@@ -46,6 +48,8 @@ public class DrugAdministrationService {
 			healthStatesAfterApplyingDrugs.compute(updatedHealthState, (key, value) -> value == null ? 1 : value + 1);
 			logger.info("Patient with health state::{} now is {}", healthState, updatedHealthState);
 		}
+
+		invokeFlyingSpaghettiMonster(healthStatesAfterApplyingDrugs);
 
 		return healthStatesAfterApplyingDrugs;
 	}
@@ -92,5 +96,20 @@ public class DrugAdministrationService {
 
 	private boolean preventsDead(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
 		return preventDeathRepository.preventsDeath(healthState, availableDrugs);
+	}
+
+	public void invokeFlyingSpaghettiMonster(Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs) {
+		if (healthStatesAfterApplyingDrugs.containsKey(HealthStateEnum.X) && healthStatesAfterApplyingDrugs.get(HealthStateEnum.X) > 0) {
+			logger.info("Invoking the Flying Spaghetti Monster...");
+			FlyingSpaghettiMonster flyingSpaghettiMonster = new FlyingSpaghettiMonster();
+
+			if (flyingSpaghettiMonster.showsNoodlyPower()) {
+				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.X, (key, value) -> value == null ? 1 : value - 1);
+				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.H, (key, value) -> value == null ? 1 : value + 1);
+				logger.info("OOHHHHH THIS IS A MIRACLE!! The Flying Spaghetti Monster decides to show his noodly power and had resurrected one death patient");
+			}
+		} else {
+			logger.info("There are not death patients to invoke the Flying Spaghetti Monster");
+		}
 	}
 }
