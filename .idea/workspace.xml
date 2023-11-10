@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="improve testing">
+    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="add FlyingSpaghettiMonster invocation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/repository/DrugCombinationEffectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/repository/HealthStateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/InMemoryDrugCombinationEffectRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/InMemoryHealthStateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/entity/DrugCombinationEffectEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/entity/HealthStateEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/HealthStateEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/HealthStateEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/printer/TerminalResponsePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/printer/TerminalResponsePrinter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/HospitalSimulatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HospitalSimulatorAcceptanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +24,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -45,25 +60,25 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/eduar/Desktop/projects/HospitalSimulator",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/eduar/Desktop/projects/HospitalSimulator&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.barbzdev.hospitalsimulator.domain" />
@@ -80,6 +95,7 @@
       <option name="MAIN_CLASS_NAME" value="com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator" />
       <module name="HospitalSimulator.main" />
       <option name="PROGRAM_PARAMETERS" value="F,D As" />
+      <option name="VM_PARAMETERS" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=DEBUG" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.barbzdev.hospitalsimulator.domain.healthstate.*" />
@@ -143,7 +159,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HospitalSimulatorTest.hospitalSimulator" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="HospitalSimulatorTest.hospitalSimulator" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -159,7 +175,7 @@
             <option value="&quot;HospitalSimulatorTest.hospitalSimulator&quot;" />
           </list>
         </option>
-        <option name="vmOptions" />
+        <option name="vmOptions" value="-Dorg.slf4j.simpleLogger.defaultLogLevel=DEBUG" />
       </ExternalSystemSettings>
       <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
@@ -191,27 +207,25 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
+    <configuration default="true" type="aws.lambda" factoryName="Remote">
+      <option name="credentialProviderId" />
+      <option name="regionId" />
+      <option name="functionName" />
+      <option name="input" />
+      <option name="inputIsFile" value="false" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.HospitalSimulator" />
+      <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
       <item itemvalue="Gradle.HospitalSimulatorTest" />
       <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
-      <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
       <item itemvalue="Gradle.HospitalSimulatorTest.test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
-        <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
         <item itemvalue="Gradle.HospitalSimulatorTest" />
+        <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
         <item itemvalue="Gradle.HospitalSimulatorTest.test" />
       </list>
     </recent_temporary>
@@ -225,7 +239,8 @@
       <option name="presentableId" value="Default" />
       <updated>1699467699079</updated>
       <workItem from="1699467700149" duration="14066000" />
-      <workItem from="1699518996998" duration="18770000" />
+      <workItem from="1699518996998" duration="27059000" />
+      <workItem from="1699629339656" duration="8160000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -283,7 +298,71 @@
       <option name="project" value="LOCAL" />
       <updated>1699564177810</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refactor code :rocket:">
+      <option name="closed" value="true" />
+      <created>1699565930267</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699565930267</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix logic">
+      <option name="closed" value="true" />
+      <created>1699566004313</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699566004313</updated>
+    </task>
+    <task id="LOCAL-00010" summary="improve readability of the code">
+      <option name="closed" value="true" />
+      <created>1699567348123</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699567348123</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add new test case">
+      <option name="closed" value="true" />
+      <created>1699567354932</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699567354932</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add logging and refactor code">
+      <option name="closed" value="true" />
+      <created>1699570918453</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1699570918453</updated>
+    </task>
+    <task id="LOCAL-00013" summary="add error handling InputHandler">
+      <option name="closed" value="true" />
+      <created>1699630317767</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1699630317767</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add testing for handling errors">
+      <option name="closed" value="true" />
+      <created>1699630365393</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1699630365393</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add FlyingSpaghettiMonster invocation">
+      <option name="closed" value="true" />
+      <created>1699630594126</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1699630594126</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +387,14 @@
     <MESSAGE value="add patient simulation" />
     <MESSAGE value="print result" />
     <MESSAGE value="improve testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve testing" />
+    <MESSAGE value="refactor code :rocket:" />
+    <MESSAGE value="fix logic" />
+    <MESSAGE value="improve readability of the code" />
+    <MESSAGE value="add new test case" />
+    <MESSAGE value="add logging and refactor code" />
+    <MESSAGE value="add error handling InputHandler" />
+    <MESSAGE value="add testing for handling errors" />
+    <MESSAGE value="add FlyingSpaghettiMonster invocation" />
+    <option name="LAST_COMMIT_MESSAGE" value="add FlyingSpaghettiMonster invocation" />
   </component>
 </project>

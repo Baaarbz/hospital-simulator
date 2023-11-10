@@ -1,16 +1,12 @@
 package com.barbzdev.hospitalsimulator.infrastructure.bootstrap;
 
 import com.barbzdev.hospitalsimulator.application.DrugAdministrationService;
-import com.barbzdev.hospitalsimulator.domain.repository.CureRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.DeathlyCombinationRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.PreventDeathRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.SideEffectRepository;
+import com.barbzdev.hospitalsimulator.domain.repository.DrugCombinationEffectRepository;
+import com.barbzdev.hospitalsimulator.domain.repository.HealthStateRepository;
 import com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandler;
 import com.barbzdev.hospitalsimulator.infrastructure.printer.TerminalResponsePrinter;
-import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryCureRepository;
-import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDeathlyCombinationRepository;
-import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryPreventDeathRepository;
-import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemorySideEffectRepository;
+import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDrugCombinationEffectRepository;
+import com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryHealthStateRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,10 +19,8 @@ public class BootstrapHospitalSimulator {
 
 	private InputHandler inputHandler;
 	private DrugAdministrationService drugAdministrationService;
-	private CureRepository cureRepository;
-	private DeathlyCombinationRepository deathlyCombinationRepository;
-	private SideEffectRepository sideEffectRepository;
-	private PreventDeathRepository preventDeathRepository;
+	private HealthStateRepository healthStateRepository;
+	private DrugCombinationEffectRepository drugCombinationEffectRepository;
 
 	public void run(String[] args) {
 		logger.debug("Bootstrapping HospitalSimulator");
@@ -44,20 +38,16 @@ public class BootstrapHospitalSimulator {
 
 	private void initRepositories() {
 		logger.debug("Initializing repositories...");
-		this.cureRepository = new InMemoryCureRepository();
-		this.deathlyCombinationRepository = new InMemoryDeathlyCombinationRepository();
-		this.sideEffectRepository = new InMemorySideEffectRepository();
-		this.preventDeathRepository = new InMemoryPreventDeathRepository();
+		this.healthStateRepository = new InMemoryHealthStateRepository();
+		this.drugCombinationEffectRepository = new InMemoryDrugCombinationEffectRepository();
 		logger.debug("Repositories initialized successfully");
 	}
 
 	private void initServices() {
 		logger.debug("Initializing services...");
 		this.drugAdministrationService = new DrugAdministrationService(
-			this.cureRepository,
-			this.deathlyCombinationRepository,
-			this.sideEffectRepository,
-			this.preventDeathRepository
+			this.healthStateRepository,
+			this.drugCombinationEffectRepository
 		);
 		logger.debug("Services initialized successfully");
 	}

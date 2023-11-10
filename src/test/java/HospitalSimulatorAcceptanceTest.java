@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class HospitalSimulatorTest {
+public class HospitalSimulatorAcceptanceTest {
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 	private final PrintStream originalOut = System.out;
 
@@ -44,6 +44,7 @@ public class HospitalSimulatorTest {
 			Arguments.of("T,F,D,H,X", "P,As", "F:0,H:0,D:0,T:0,X:5", "die all"),
 			Arguments.of("T,F,D,H,X", "As,P", "F:0,H:0,D:0,T:0,X:5", "die all"),
 			Arguments.of("T,F,D,H,X", "An,P,I,As", "F:0,H:0,D:0,T:0,X:5", "die all"),
+			Arguments.of("T,F,D,H,X", "An,As", "F:0,H:3,D:0,T:0,X:2", "die guy with diabetes and 3 recovers"),
 			Arguments.of("T,F,D", "An,I", "F:2,H:0,D:1,T:0,X:0", "patient with diabetes not die, tuberculosis cure with antibiotic but produces fever with insulin"),
 			Arguments.of("Bar,T,F,Foo,", ",Bar,,As,An,Fo", "F:0,H:2,D:0,T:0,X:0", "ignore wrong inputs and cure patients with F and T")
 		);

@@ -3,10 +3,8 @@ package com.barbzdev.hospitalsimulator.application;
 import com.barbzdev.hospitalsimulator.domain.DrugEnum;
 import com.barbzdev.hospitalsimulator.domain.FlyingSpaghettiMonster;
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
-import com.barbzdev.hospitalsimulator.domain.repository.CureRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.DeathlyCombinationRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.PreventDeathRepository;
-import com.barbzdev.hospitalsimulator.domain.repository.SideEffectRepository;
+import com.barbzdev.hospitalsimulator.domain.repository.DrugCombinationEffectRepository;
+import com.barbzdev.hospitalsimulator.domain.repository.HealthStateRepository;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -18,19 +16,12 @@ import org.slf4j.LoggerFactory;
 public class DrugAdministrationService {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	private final CureRepository cureRepository;
-	private final DeathlyCombinationRepository deathlyCombinationRepository;
-	private final SideEffectRepository sideEffectRepository;
-	private final PreventDeathRepository preventDeathRepository;
+	private final HealthStateRepository healthStateRepository;
+	private final DrugCombinationEffectRepository drugCombinationEffectRepository;
 
-	public DrugAdministrationService(CureRepository cureRepository,
-																	 DeathlyCombinationRepository deathlyCombinationRepository,
-																	 SideEffectRepository sideEffectRepository,
-																	 PreventDeathRepository preventDeathRepository) {
-		this.cureRepository = cureRepository;
-		this.deathlyCombinationRepository = deathlyCombinationRepository;
-		this.sideEffectRepository = sideEffectRepository;
-		this.preventDeathRepository = preventDeathRepository;
+	public DrugAdministrationService(HealthStateRepository healthStateRepository, DrugCombinationEffectRepository drugCombinationEffectRepository) {
+		this.healthStateRepository = healthStateRepository;
+		this.drugCombinationEffectRepository = drugCombinationEffectRepository;
 	}
 
 	public Map<HealthStateEnum, Integer> execute(List<HealthStateEnum> healthStates, Set<DrugEnum> availableDrugs) {
@@ -44,7 +35,9 @@ public class DrugAdministrationService {
 		}
 
 		for (HealthStateEnum healthState : healthStates) {
-			HealthStateEnum updatedHealthState = applyDrugEffects(healthState, availableDrugs);
+			HealthStateEnum updatedHealthState = healthState == HealthStateEnum.X
+				? HealthStateEnum.X
+				: applyDrugEffects(healthState, availableDrugs);
 			healthStatesAfterApplyingDrugs.compute(updatedHealthState, (key, value) -> value == null ? 1 : value + 1);
 			logger.info("Patient with health state::{} now is {}", healthState, updatedHealthState);
 		}
@@ -55,47 +48,31 @@ public class DrugAdministrationService {
 	}
 
 	private HealthStateEnum applyDrugEffects(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
-		HealthStateEnum updatedHealthState = healthState;
-
 		if (isHealthyOrHasCure(healthState, availableDrugs)) {
-			updatedHealthState = applyDrugsToHealthyPatientOrWithCure(availableDrugs);
-		} else if (isDeadlyDisease(healthState)) {
-			updatedHealthState = applyDrugsToPatientWithDeadlyDisease(healthState, availableDrugs);
+			return applyDrugsToHealthyPatientOrWithCure(availableDrugs);
 		}
 
-		return updatedHealthState;
-	}
-
-	private boolean hasDeathlyCombination(Set<DrugEnum> availableDrugs) {
-		return deathlyCombinationRepository.hasDeathlyCombination(availableDrugs);
-	}
-
-	private boolean isHealthyOrHasCure(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
-		return healthState == HealthStateEnum.H || cureRepository.hasCure(healthState, availableDrugs);
-	}
-
-	private HealthStateEnum applyDrugsToHealthyPatientOrWithCure(Set<DrugEnum> availableDrugs) {
-		Optional<HealthStateEnum> sideEffectStateOptional = sideEffectRepository.findBy(availableDrugs);
-		sideEffectStateOptional.ifPresent(sideEffect -> logger.info("Drugs combination::{} has side effects causing::{}", availableDrugs, sideEffect));
-		return sideEffectStateOptional.orElse(HealthStateEnum.H);
-	}
-
-	private boolean isDeadlyDisease(HealthStateEnum healthState) {
-		return preventDeathRepository.isDeadlyDisease(healthState);
-	}
-
-	private HealthStateEnum applyDrugsToPatientWithDeadlyDisease(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
-		if (preventsDead(healthState, availableDrugs)) {
-			logger.info("Patient has the right drugs to prevent dying of::{}", healthState);
+		if (healthStateRepository.preventsDeath(healthState, availableDrugs)) {
+			logger.info("Patient with::{} prevents death with drugs::{}", healthState, availableDrugs);
 			return healthState;
 		}
 
-		logger.info("Patient dies of::{} because does not receive the right drugs", healthState);
+		logger.info("Patient with::{} will die due to not receive right treatment", healthState);
 		return HealthStateEnum.X;
 	}
 
-	private boolean preventsDead(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
-		return preventDeathRepository.preventsDeath(healthState, availableDrugs);
+	private boolean hasDeathlyCombination(Set<DrugEnum> availableDrugs) {
+		return drugCombinationEffectRepository.isDeadlyCombination(availableDrugs);
+	}
+
+	private boolean isHealthyOrHasCure(HealthStateEnum healthState, Set<DrugEnum> availableDrugs) {
+		return healthState == HealthStateEnum.H || healthStateRepository.hasCure(healthState, availableDrugs);
+	}
+
+	private HealthStateEnum applyDrugsToHealthyPatientOrWithCure(Set<DrugEnum> availableDrugs) {
+		Optional<HealthStateEnum> sideEffectStateOptional = drugCombinationEffectRepository.findBy(availableDrugs);
+		sideEffectStateOptional.ifPresent(sideEffect -> logger.info("Drugs combination::{} has side effects causing::{}", availableDrugs, sideEffect));
+		return sideEffectStateOptional.orElse(HealthStateEnum.H);
 	}
 
 	public void invokeFlyingSpaghettiMonster(Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs) {
