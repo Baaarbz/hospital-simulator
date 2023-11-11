@@ -79,7 +79,7 @@ public class DrugAdministrationService {
 		return sideEffectStateOptional.orElse(HealthStateEnum.H);
 	}
 
-	public void invokeFlyingSpaghettiMonster(Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs) {
+	private void invokeFlyingSpaghettiMonster(Map<HealthStateEnum, Integer> healthStatesAfterApplyingDrugs) {
 		if (healthStatesAfterApplyingDrugs.containsKey(HealthStateEnum.X) && healthStatesAfterApplyingDrugs.get(HealthStateEnum.X) > 0) {
 			logger.info("Invoking the Flying Spaghetti Monster...");
 
