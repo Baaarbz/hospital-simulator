@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="add InMemoryHealthStateRepository testing">
+    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="add shadow jar to create a flat jar">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +27,12 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -46,6 +52,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.editorconfig" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -56,27 +65,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/eduar/Desktop/projects/HospitalSimulator&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/eduar/Desktop/projects/HospitalSimulator",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.sourceCode.Java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.barbzdev.hospitalsimulator.domain" />
@@ -88,6 +97,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.barbzdev.hospitalsimulator.infrastructure.printer" />
       <recent name="com.barbzdev.hospitalsimulator.infrastructure.repository" />
       <recent name="com.barbzdev.hospitalsimulator.infrastructure.handler" />
       <recent name="com.barbzdev.hospitalsimulator.infrastructure.component" />
@@ -96,7 +106,7 @@
       <recent name="com.barbzdev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DrugAdministrationServiceTest">
+  <component name="RunManager" selected="Gradle.HospitalSimulator [shadowJar]">
     <configuration name="HospitalSimulator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator" />
       <module name="HospitalSimulator.main" />
@@ -141,28 +151,70 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="FlyingSpaghettiMonsterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="HospitalSimulator [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.component.FlyingSpaghettiMonsterTest&quot;" />
+            <option value="build" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HospitalSimulator [jar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="jar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="HospitalSimulator [shadowJar]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="shadowJar" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration name="HospitalSimulatorTest.hospitalSimulator" type="GradleRunConfiguration" factoryName="Gradle">
@@ -189,7 +241,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="InMemoryDrugCombinationEffectRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TerminalResponsePrinterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -202,55 +254,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryDrugCombinationEffectRepositoryTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="InMemoryHealthStateRepositoryTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.repository.InMemoryHealthStateRepositoryTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="InputHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandlerTest&quot;" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.printer.TerminalResponsePrinterTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -264,19 +268,19 @@
     <list>
       <item itemvalue="Application.HospitalSimulator" />
       <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
-      <item itemvalue="Gradle.FlyingSpaghettiMonsterTest" />
-      <item itemvalue="Gradle.InMemoryDrugCombinationEffectRepositoryTest" />
-      <item itemvalue="Gradle.InMemoryHealthStateRepositoryTest" />
+      <item itemvalue="Gradle.HospitalSimulator [build]" />
+      <item itemvalue="Gradle.HospitalSimulator [jar]" />
+      <item itemvalue="Gradle.HospitalSimulator [shadowJar]" />
+      <item itemvalue="Gradle.TerminalResponsePrinterTest" />
       <item itemvalue="Gradle.DrugAdministrationServiceTest" />
-      <item itemvalue="Gradle.InputHandlerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.HospitalSimulator [shadowJar]" />
+        <item itemvalue="Gradle.HospitalSimulator [jar]" />
+        <item itemvalue="Gradle.HospitalSimulator [build]" />
+        <item itemvalue="Gradle.TerminalResponsePrinterTest" />
         <item itemvalue="Gradle.DrugAdministrationServiceTest" />
-        <item itemvalue="Gradle.FlyingSpaghettiMonsterTest" />
-        <item itemvalue="Gradle.InputHandlerTest" />
-        <item itemvalue="Gradle.InMemoryDrugCombinationEffectRepositoryTest" />
-        <item itemvalue="Gradle.InMemoryHealthStateRepositoryTest" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +295,7 @@
       <workItem from="1699467700149" duration="14066000" />
       <workItem from="1699518996998" duration="27059000" />
       <workItem from="1699629339656" duration="21018000" />
-      <workItem from="1699692502284" duration="1846000" />
+      <workItem from="1699692502284" duration="6188000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -493,7 +497,31 @@
       <option name="project" value="LOCAL" />
       <updated>1699694275092</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add terminal printer tests">
+      <option name="closed" value="true" />
+      <created>1699696251862</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1699696251862</updated>
+    </task>
+    <task id="LOCAL-00027" summary="improve logs">
+      <option name="closed" value="true" />
+      <created>1699696347252</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1699696347252</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add shadow jar to create a flat jar">
+      <option name="closed" value="true" />
+      <created>1699698917399</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1699698917399</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,9 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init commit" />
-    <MESSAGE value="adding basic project structure" />
-    <MESSAGE value="remove lombok" />
     <MESSAGE value="remove unneeded printer repository" />
     <MESSAGE value="add patient simulation" />
     <MESSAGE value="print result" />
@@ -536,7 +561,10 @@
     <MESSAGE value="add drug combination testing and rename method" />
     <MESSAGE value="remove unneeded dependency" />
     <MESSAGE value="add InMemoryHealthStateRepository testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="add InMemoryHealthStateRepository testing" />
+    <MESSAGE value="add terminal printer tests" />
+    <MESSAGE value="improve logs" />
+    <MESSAGE value="add shadow jar to create a flat jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="add shadow jar to create a flat jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -552,6 +580,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/HospitalSimulator$InMemoryHealthStateRepositoryTest.ic" NAME="InMemoryHealthStateRepositoryTest Coverage Results" MODIFIED="1699694231297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HospitalSimulator$FlyingSpaghettiMonsterTest.ic" NAME="FlyingSpaghettiMonsterTest Coverage Results" MODIFIED="1699694320040" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HospitalSimulator$TerminalResponsePrinterTest.ic" NAME="TerminalResponsePrinterTest Coverage Results" MODIFIED="1699696230834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HospitalSimulator$InMemoryDrugCombinationEffectRepositoryTest.ic" NAME="InMemoryDrugCombinationEffectRepositoryTest Coverage Results" MODIFIED="1699694293695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HospitalSimulator$DrugAdministrationServiceTest.ic" NAME="DrugAdministrationServiceTest Coverage Results" MODIFIED="1699694326121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/HospitalSimulator$InputHandlerTest.ic" NAME="InputHandlerTest Coverage Results" MODIFIED="1699694306521" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

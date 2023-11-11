@@ -51,8 +51,8 @@ administered.
 - Define drugs collection input as `Set` to ignore duplications, due to it does not matter if the user input three times
   a Paracetamol or not.
 - In order to keep the app as simple as possible, instead of using POJOs for `Patients` and `Drugs`, I decided to
-  use `enums`, due to that POJOs won't have any special logic by its' health state or whatever, and in this way, I can
-  simplify the way I use and validate the input.
+  use only the `enums` as domain, due to that POJOs won't have any special logic by its' health state or whatever, and in this way, I can
+  simplify the way I use and validate the input and also de code.
 - Split in two the business rules:
     - How to treat different health states and its results:
 
