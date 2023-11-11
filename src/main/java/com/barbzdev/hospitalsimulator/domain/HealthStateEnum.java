@@ -9,6 +9,6 @@ public enum HealthStateEnum {
 	D,
 	// Tuberculosis
 	T,
-	// Death
+	// Dead
 	X
 }
