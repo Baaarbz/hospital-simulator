@@ -86,10 +86,10 @@ public class DrugAdministrationService {
 			if (spaghettiMonster.showsNoodlyPower()) {
 				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.X, (key, value) -> value == null ? 1 : value - 1);
 				healthStatesAfterApplyingDrugs.compute(HealthStateEnum.H, (key, value) -> value == null ? 1 : value + 1);
-				logger.info("OOHHHHH THIS IS A MIRACLE!! The Flying Spaghetti Monster decides to show his noodly power and had resurrected one death patient");
+				logger.info("OOHHHHH THIS IS A MIRACLE!! The Flying Spaghetti Monster decides to show his noodly power and had resurrected one dead patient");
 			}
 		} else {
-			logger.info("There are not death patients to invoke the Flying Spaghetti Monster");
+			logger.info("There are not dead patients to invoke the Flying Spaghetti Monster");
 		}
 	}
 }
