@@ -33,7 +33,7 @@ public class InMemoryDrugCombinationEffectRepository implements DrugCombinationE
 
 	@Override
 	public Boolean isDeadlyCombination(Set<DrugEnum> drugs) {
-		logger.debug("Searching if drugs::{} can have a non desired effect", drugs);
+		logger.debug("Searching if drugs::{} has a deadly effect", drugs);
 		return inMemoryDrugs.stream()
 			.anyMatch(drugsCombination -> drugsCombination.effect() == HealthStateEnum.X && drugs.containsAll(drugsCombination.drugCombination()));
 	}
