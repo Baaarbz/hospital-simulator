@@ -14,10 +14,10 @@ import static org.mockito.Mockito.when;
 class FlyingSpaghettiMonsterTest {
 
 	@Mock
-	Random random;
+	private Random random;
 
 	@InjectMocks
-	FlyingSpaghettiMonster flyingSpaghettiMonster;
+	private FlyingSpaghettiMonster flyingSpaghettiMonster;
 
 	@Test
 	void WHEN_randomHitsNumber4_SHOULD_returnTrue() {

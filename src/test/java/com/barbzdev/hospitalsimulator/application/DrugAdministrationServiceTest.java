@@ -28,16 +28,16 @@ import static org.mockito.Mockito.when;
 public class DrugAdministrationServiceTest {
 
 	@Mock
-	HealthStateRepository healthStateRepository;
+	private HealthStateRepository healthStateRepository;
 
 	@Mock
-	DrugCombinationEffectRepository drugCombinationEffectRepository;
+	private DrugCombinationEffectRepository drugCombinationEffectRepository;
 
 	@Mock
-	SpaghettiMonster spaghettiMonster;
+	private SpaghettiMonster spaghettiMonster;
 
 	@InjectMocks
-	DrugAdministrationService drugAdministrationService;
+	private DrugAdministrationService drugAdministrationService;
 
 
 	@Test
