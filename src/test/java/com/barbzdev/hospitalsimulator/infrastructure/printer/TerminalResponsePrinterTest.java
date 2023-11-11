@@ -1,7 +1,6 @@
 package com.barbzdev.hospitalsimulator.infrastructure.printer;
 
 import com.barbzdev.hospitalsimulator.domain.HealthStateEnum;
-import com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Map;
@@ -9,14 +8,12 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class TerminalResponsePrinterTest {
