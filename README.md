@@ -105,4 +105,6 @@ ___
    java -jar build/libs/HospitalSimulator-1.0-SNAPSHOT-all.jar F P
    ```
 
+> If you have permission error while executing `./gradlew shadowJar` you can fix it with `chmod +x ./gradlew`
+
 <p align="right">(<a href="#top">back to top</a>)</p>
