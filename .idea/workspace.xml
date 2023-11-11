@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="add FlyingSpaghettiMonster invocation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/repository/DrugCombinationEffectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/domain/repository/HealthStateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/InMemoryDrugCombinationEffectRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/InMemoryHealthStateRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/entity/DrugCombinationEffectEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/repository/entity/HealthStateEntity.java" afterDir="false" />
+    <list default="true" id="c547da56-b6a2-4410-a970-08c7b7cfe621" name="Changes" comment="add input handler testing">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/barbzdev/hospitalsimulator/infrastructure/repository/InMemoryDrugCombinationEffectRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/application/DrugAdministrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/HospitalSimulatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/HospitalSimulatorAcceptanceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageOptionsProvider">
+    <option name="myAddOrReplace" value="1" />
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -39,8 +35,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -65,6 +62,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/eduar/Desktop/projects/HospitalSimulator&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -86,11 +85,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\eduar\Desktop\projects\HospitalSimulator" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.barbzdev.hospitalsimulator.infrastructure.handler" />
+      <recent name="com.barbzdev.hospitalsimulator.infrastructure.component" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.barbzdev.domain" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.HospitalSimulatorTest.hospitalSimulator">
+  <component name="RunManager" selected="Gradle.InputHandlerTest">
     <configuration name="HospitalSimulator" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.barbzdev.hospitalsimulator.infrastructure.HospitalSimulator" />
       <module name="HospitalSimulator.main" />
@@ -111,7 +117,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HospitalSimulatorTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="DrugAdministrationServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -124,31 +130,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;HospitalSimulatorTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="HospitalSimulatorTest.Should_TestDifferentCases" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;HospitalSimulatorTest.Should_TestDifferentCases&quot;" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.application.DrugAdministrationServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -183,7 +165,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="HospitalSimulatorTest.test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="InputHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -196,7 +178,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;HospitalSimulatorTest.test&quot;" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandlerTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -207,26 +189,94 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration default="true" type="aws.lambda" factoryName="Remote">
-      <option name="credentialProviderId" />
-      <option name="regionId" />
-      <option name="functionName" />
-      <option name="input" />
-      <option name="inputIsFile" value="false" />
+    <configuration name="InputHandlerTest.GIVEN_existingHealthStateAndDrugs_SHOULD_sendToService" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandlerTest.GIVEN_existingHealthStateAndDrugs_SHOULD_sendToService&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="InputHandlerTest.GIVEN_healthStateAndDrugs_WITH_wrongFormats_SHOULD_ignoreWrongsAndSendRightOnes" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandlerTest.GIVEN_healthStateAndDrugs_WITH_wrongFormats_SHOULD_ignoreWrongsAndSendRightOnes&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="InputHandlerTest.GIVEN_nonExistingHealthStateAndDrugs_SHOULD_ignore" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.barbzdev.hospitalsimulator.infrastructure.handler.InputHandlerTest.GIVEN_nonExistingHealthStateAndDrugs_SHOULD_ignore&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Application.HospitalSimulator" />
       <item itemvalue="Gradle.HospitalSimulatorTest.hospitalSimulator" />
-      <item itemvalue="Gradle.HospitalSimulatorTest" />
-      <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
-      <item itemvalue="Gradle.HospitalSimulatorTest.test" />
+      <item itemvalue="Gradle.DrugAdministrationServiceTest" />
+      <item itemvalue="Gradle.InputHandlerTest" />
+      <item itemvalue="Gradle.InputHandlerTest.GIVEN_existingHealthStateAndDrugs_SHOULD_sendToService" />
+      <item itemvalue="Gradle.InputHandlerTest.GIVEN_healthStateAndDrugs_WITH_wrongFormats_SHOULD_ignoreWrongsAndSendRightOnes" />
+      <item itemvalue="Gradle.InputHandlerTest.GIVEN_nonExistingHealthStateAndDrugs_SHOULD_ignore" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.HospitalSimulatorTest" />
-        <item itemvalue="Gradle.HospitalSimulatorTest.Should_TestDifferentCases" />
-        <item itemvalue="Gradle.HospitalSimulatorTest.test" />
+        <item itemvalue="Gradle.InputHandlerTest" />
+        <item itemvalue="Gradle.InputHandlerTest.GIVEN_healthStateAndDrugs_WITH_wrongFormats_SHOULD_ignoreWrongsAndSendRightOnes" />
+        <item itemvalue="Gradle.InputHandlerTest.GIVEN_nonExistingHealthStateAndDrugs_SHOULD_ignore" />
+        <item itemvalue="Gradle.InputHandlerTest.GIVEN_existingHealthStateAndDrugs_SHOULD_sendToService" />
+        <item itemvalue="Gradle.DrugAdministrationServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +290,8 @@
       <updated>1699467699079</updated>
       <workItem from="1699467700149" duration="14066000" />
       <workItem from="1699518996998" duration="27059000" />
-      <workItem from="1699629339656" duration="8160000" />
+      <workItem from="1699629339656" duration="21018000" />
+      <workItem from="1699692502284" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <option name="closed" value="true" />
@@ -362,7 +413,63 @@
       <option name="project" value="LOCAL" />
       <updated>1699630594126</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="improve code refactoring repositories and service">
+      <option name="closed" value="true" />
+      <created>1699645695130</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1699645695130</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add more tests cases">
+      <option name="closed" value="true" />
+      <created>1699657418615</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699657418615</updated>
+    </task>
+    <task id="LOCAL-00018" summary="refactor SpaghettiMonster to component and add test">
+      <option name="closed" value="true" />
+      <created>1699658216735</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1699658216735</updated>
+    </task>
+    <task id="LOCAL-00019" summary="refactor SpaghettiMonster and add tests">
+      <option name="closed" value="true" />
+      <created>1699658779389</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699658779389</updated>
+    </task>
+    <task id="LOCAL-00020" summary="change method visibility from public to private">
+      <option name="closed" value="true" />
+      <created>1699661729900</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1699661729900</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add private modifier to testing mocks">
+      <option name="closed" value="true" />
+      <created>1699662958853</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1699662958853</updated>
+    </task>
+    <task id="LOCAL-00022" summary="add input handler testing">
+      <option name="closed" value="true" />
+      <created>1699662969156</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1699662969156</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +502,29 @@
     <MESSAGE value="add error handling InputHandler" />
     <MESSAGE value="add testing for handling errors" />
     <MESSAGE value="add FlyingSpaghettiMonster invocation" />
-    <option name="LAST_COMMIT_MESSAGE" value="add FlyingSpaghettiMonster invocation" />
+    <MESSAGE value="improve code refactoring repositories and service" />
+    <MESSAGE value="add more tests cases" />
+    <MESSAGE value="refactor SpaghettiMonster to component and add test" />
+    <MESSAGE value="refactor SpaghettiMonster and add tests" />
+    <MESSAGE value="change method visibility from public to private" />
+    <MESSAGE value="add private modifier to testing mocks" />
+    <MESSAGE value="add input handler testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="add input handler testing" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/barbzdev/hospitalsimulator/infrastructure/component/FlyingSpaghettiMonster.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/HospitalSimulator$FlyingSpaghettiMonsterTest.ic" NAME="FlyingSpaghettiMonsterTest Coverage Results" MODIFIED="1699658749538" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HospitalSimulator$DrugAdministrationServiceTest.ic" NAME="DrugAdministrationServiceTest Coverage Results" MODIFIED="1699658785251" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/HospitalSimulator$InputHandlerTest.ic" NAME="InputHandlerTest Coverage Results" MODIFIED="1699661655401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

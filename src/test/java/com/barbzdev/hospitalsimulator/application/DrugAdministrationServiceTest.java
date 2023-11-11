@@ -46,7 +46,7 @@ public class DrugAdministrationServiceTest {
 		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
 		when(healthStateRepository.hasCure(any(), any())).thenReturn(true);
-		when(drugCombinationEffectRepository.findBy(any())).thenReturn(Optional.empty());
+		when(drugCombinationEffectRepository.findSideEffectBy(any())).thenReturn(Optional.empty());
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -58,7 +58,7 @@ public class DrugAdministrationServiceTest {
 		InOrder inOrder = inOrder(drugCombinationEffectRepository, healthStateRepository);
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
-		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
+		inOrder.verify(drugCombinationEffectRepository).findSideEffectBy(drugsInput);
 		verifyNoInteractions(spaghettiMonster);
 	}
 
@@ -68,7 +68,7 @@ public class DrugAdministrationServiceTest {
 		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
 		when(healthStateRepository.hasCure(any(), any())).thenReturn(true);
-		when(drugCombinationEffectRepository.findBy(any())).thenReturn(Optional.of(HealthStateEnum.F));
+		when(drugCombinationEffectRepository.findSideEffectBy(any())).thenReturn(Optional.of(HealthStateEnum.F));
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -80,7 +80,7 @@ public class DrugAdministrationServiceTest {
 		InOrder inOrder = inOrder(drugCombinationEffectRepository, healthStateRepository);
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
 		inOrder.verify(healthStateRepository).hasCure(healthStateInput.get(0), drugsInput);
-		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
+		inOrder.verify(drugCombinationEffectRepository).findSideEffectBy(drugsInput);
 		verifyNoInteractions(spaghettiMonster);
 	}
 
@@ -134,7 +134,7 @@ public class DrugAdministrationServiceTest {
 		List<HealthStateEnum> healthStateInput = List.of(HealthStateEnum.H);
 		Set<DrugEnum> drugsInput = Set.of(DrugEnum.AN);
 		when(drugCombinationEffectRepository.isDeadlyCombination(any())).thenReturn(false);
-		when(drugCombinationEffectRepository.findBy(any())).thenReturn(Optional.empty());
+		when(drugCombinationEffectRepository.findSideEffectBy(any())).thenReturn(Optional.empty());
 
 		Map<HealthStateEnum, Integer> response = drugAdministrationService.execute(healthStateInput, drugsInput);
 
@@ -145,7 +145,7 @@ public class DrugAdministrationServiceTest {
 		assertNull(response.get(HealthStateEnum.D));
 		InOrder inOrder = inOrder(drugCombinationEffectRepository, healthStateRepository);
 		inOrder.verify(drugCombinationEffectRepository).isDeadlyCombination(drugsInput);
-		inOrder.verify(drugCombinationEffectRepository).findBy(drugsInput);
+		inOrder.verify(drugCombinationEffectRepository).findSideEffectBy(drugsInput);
 		verifyNoInteractions(healthStateRepository);
 		verifyNoInteractions(spaghettiMonster);
 	}

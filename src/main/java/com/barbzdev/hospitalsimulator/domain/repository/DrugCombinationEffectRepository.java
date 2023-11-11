@@ -7,7 +7,7 @@ import java.util.Set;
 
 public interface DrugCombinationEffectRepository {
 
-	Optional<HealthStateEnum> findBy(Set<DrugEnum> drugs);
+	Optional<HealthStateEnum> findSideEffectBy(Set<DrugEnum> drugs);
 
 	Boolean isDeadlyCombination(Set<DrugEnum> drugs);
 }

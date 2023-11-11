@@ -23,7 +23,7 @@ public class InMemoryDrugCombinationEffectRepository implements DrugCombinationE
 	}
 
 	@Override
-	public Optional<HealthStateEnum> findBy(Set<DrugEnum> drugs) {
+	public Optional<HealthStateEnum> findSideEffectBy(Set<DrugEnum> drugs) {
 		logger.debug("Searching if drugs::{} can have a non desired effect", drugs);
 		return inMemoryDrugs.stream()
 			.filter(drugsCombination -> drugsCombination.effect() != HealthStateEnum.X && drugs.containsAll(drugsCombination.drugCombination()))

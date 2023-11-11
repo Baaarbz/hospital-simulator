@@ -74,7 +74,7 @@ public class DrugAdministrationService {
 	}
 
 	private HealthStateEnum applyDrugsToHealthyPatientOrWithCure(Set<DrugEnum> availableDrugs) {
-		Optional<HealthStateEnum> sideEffectStateOptional = drugCombinationEffectRepository.findBy(availableDrugs);
+		Optional<HealthStateEnum> sideEffectStateOptional = drugCombinationEffectRepository.findSideEffectBy(availableDrugs);
 		sideEffectStateOptional.ifPresent(sideEffect -> logger.info("Drugs combination::{} has side effects causing::{}", availableDrugs, sideEffect));
 		return sideEffectStateOptional.orElse(HealthStateEnum.H);
 	}
